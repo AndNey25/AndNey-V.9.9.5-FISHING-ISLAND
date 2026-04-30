@@ -1,9 +1,3 @@
---[[
-    ANDNEY ULTIMATE v9.9.5
-    Ready for GitHub / loadstring execution
---]]
-
--- Tunggu game bener-bener load biar gak error pas dipanggil loadstring
 if not game:IsLoaded() then game.Loaded:Wait() end
 
 local rs = game:GetService("ReplicatedStorage")
@@ -11,19 +5,16 @@ local uis = game:GetService("UserInputService")
 local player = game:GetService("Players").LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
--- [ SETTINGS ]
 _G.AndNeyActive = false
 local startTime = tick()
 local sessionCount = 0
 local toggleKey = Enum.KeyCode.LeftControl
 local alaySoundID = "rbxassetid://2865227271" 
 
--- [ CLEANER ]
 if playerGui:FindFirstChild("AndNey_Project") then 
     playerGui.AndNey_Project:Destroy() 
 end
 
--- [ UI BUILDER ]
 local sg = Instance.new("ScreenGui", playerGui)
 sg.Name = "AndNey_Project"
 sg.ResetOnSpawn = false
@@ -43,7 +34,6 @@ title.BackgroundTransparency = 1
 title.Font = Enum.Font.Code
 title.TextSize = 16
 
--- Rainbow Border Effect
 task.spawn(function()
     while task.wait() do
         local color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
@@ -96,7 +86,6 @@ hint.BackgroundTransparency = 1
 hint.Font = Enum.Font.Code
 hint.TextSize = 9
 
--- [ LOGIC ]
 uis.InputBegan:Connect(function(input, gp)
     if not gp and input.KeyCode == toggleKey then main.Visible = not main.Visible end
 end)
